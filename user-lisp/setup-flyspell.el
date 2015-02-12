@@ -1,4 +1,5 @@
-;; In Ubuntu remember to add these fucking shits to the directory where .dic and .aff are stored in the output of the hunspell -D
+;; In Ubuntu remember to add these fucking shits to the directory where
+;; .dic and .aff are stored in the output of the hunspell -D
 ;; in my case it's in /usr/share/hunspell
 
 (setq ispell-program-name "hunspell")
