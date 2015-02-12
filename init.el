@@ -34,6 +34,12 @@
 ;; Tildes y otras teclas muertas
 (require 'iso-transl)
 
+;; Are we on a mac?
+(setq system-is-mac (equal system-type 'darwin))
+
+;; Are we on Gnu/linux?
+(setq system-is-linux (equal system-type 'gnu/linux))
+
 ;; Setup packages
 (require 'setup-package)
 
@@ -72,6 +78,7 @@
 
      ;;python
      jedi
+     python-environment
      ;;ein
 
      ;;Orden
