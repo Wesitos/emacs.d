@@ -19,7 +19,7 @@
 (defun persp-cycle-next ()
   "Cycle throught the available perspectives."
   (interactive)
-  (let ((next-pos (1+ (persp-curr-position)))
+  (let ((next-pos (1+ (cl-position (persp-name persp-curr) (persp-names))))
         (list-size (length (persp-all-names))))
     (cond ((eq 1 list-size) (persp-switch nil))
           ((>= next-pos list-size) (persp-switch (nth 0 (persp-all-names))))
@@ -28,7 +28,7 @@
 (defun persp-cycle-prev ()
   "Cycle throught the available perspectives."
   (interactive)
-  (let ((next-pos (- (persp-curr-position) 1))
+  (let ((next-pos (- (cl-position (persp-name persp-curr) (persp-names)) 1))
         (list-size (length (persp-all-names))))
     (cond ((eq 1 list-size) (persp-switch nil))
           ((< next-pos 0) (persp-switch (nth (- list-size 1) (persp-all-names))))
