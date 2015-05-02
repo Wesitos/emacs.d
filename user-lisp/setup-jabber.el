@@ -26,7 +26,7 @@
  jabber-auto-reconnect t
  ;;jabber-vcard-avatars-retrieve nil
  ;; jabber-chat-buffer-show-avatar nil
- jabber-history-enabled t
+ jabber-history-enabled nil
  jabber-use-global-history nil
  jabber-backlog-number 40
  jabber-backlog-days 30)
