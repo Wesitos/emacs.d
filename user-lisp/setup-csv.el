@@ -1,3 +1,5 @@
+(require 'csv-mode)
+
 (setq csv-separators '("," " " "	"))
 
 (add-hook 'csv-mode-hook (lambda ()
