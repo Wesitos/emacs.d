@@ -102,7 +102,7 @@
 
      ;;Clojure
      ;;ac-nrepl ;;No longer in repositories
-     ac-cider
+     ;;ac-cider ;;Now is company
      cider
      ;;cider-tracing ;;No longer in repositories
      clj-refactor
