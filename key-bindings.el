@@ -10,6 +10,9 @@
 ;;ñ
 (global-set-key (kbd "C-x 9")(kbd "C-x 8 ~ n"))
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; helm
 (global-set-key (kbd "C-c o") 'helm-overlord)
 (global-set-key (kbd "M-x") 'helm-M-x)
