@@ -1,6 +1,10 @@
 ;;Odio el yank con la rueda del mouse
 (global-unset-key [mouse-2])
 
+;; Avanzar y retroceder con los botones del trackball
+(global-set-key (kbd "<mouse-9>")(kbd "<next>"))
+(global-set-key (kbd "<mouse-8>")(kbd "<prior>"))
+
 ;;Navegacion con lineas logicas (visual-line mode)
 ;; (global-set-key (kbd "C-n") 'next-logical-line)
 ;; (global-set-key (kbd "C-p") 'previous-logical-line)
