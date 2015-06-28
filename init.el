@@ -148,9 +148,6 @@
 ;; Lets start with a smattering of sanity
 (require 'sane-defaults)
 
-;; Setup Key bindings
-(require 'key-bindings)
-
 ;; Emacs server
 (require 'server)
 (unless (server-running-p)
@@ -160,3 +157,6 @@
 ;; Load user specific configuration
 (when (file-exists-p user-lisp-dir)
   (mapc 'load (directory-files user-lisp-dir nil "^[^#].*el$")))
+
+;; Setup Key bindings after smartparens config
+(require 'key-bindings)
