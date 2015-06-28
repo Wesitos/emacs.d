@@ -75,6 +75,7 @@
      matlab-mode
      arduino-mode
      yaml-mode
+     csv-mode
 
      ;;python
      jedi
