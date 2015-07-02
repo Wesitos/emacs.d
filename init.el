@@ -21,7 +21,7 @@
 (load custom-file)
 
 ;; Set up appearance early
-(require (expand-file-name "appearance.el" user-emacs-directory))
+(load-file (expand-file-name "appearance.el" user-emacs-directory))
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -41,7 +41,7 @@
 (setq system-is-linux (equal system-type 'gnu/linux))
 
 ;; Setup packages
-(require (expand-file-name "setup-package.el" user-emacs-directory))
+(load-file (expand-file-name "setup-package.el" user-emacs-directory))
 
 ;; Install extensions if they're missing
 (defun init--install-packages ()
@@ -144,7 +144,7 @@
    (init--install-packages)))
 
 ;; Lets start with a smattering of sanity
-(require (expand-file-name "sane-defaults.el" user-emacs-directory))
+(load-file (expand-file-name "sane-defaults.el" user-emacs-directory))
 
 ;; Emacs server
 (require 'server)
@@ -157,4 +157,4 @@
   (mapc 'load (directory-files user-lisp-dir nil "^[^#].*el$")))
 
 ;; Setup Key bindings after smartparens config
-(require (expand-file-name "key-bindings.el" user-emacs-directory))
+(load-file (expand-file-name "key-bindings.el" user-emacs-directory))
