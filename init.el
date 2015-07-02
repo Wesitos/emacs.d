@@ -12,7 +12,7 @@
       (expand-file-name "user-lisp" user-emacs-directory))
 
 ;; Set up load path
-(add-to-list 'load-path user-emacs-directory)
+
 (add-to-list 'load-path site-lisp-dir)
 (add-to-list 'load-path user-lisp-dir)
 
@@ -21,7 +21,7 @@
 (load custom-file)
 
 ;; Set up appearance early
-(require 'appearance)
+(require (expand-file-name "appearance.el" user-emacs-directory))
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -41,7 +41,7 @@
 (setq system-is-linux (equal system-type 'gnu/linux))
 
 ;; Setup packages
-(require 'setup-package)
+(require (expand-file-name "setup-package.el" user-emacs-directory))
 
 ;; Install extensions if they're missing
 (defun init--install-packages ()
@@ -65,8 +65,6 @@
 
      ;;Git
      magit    ;;Trabajar con git
-     git-commit-mode
-     git-rebase-mode
      git-timemachine
      gitignore-mode
 
@@ -146,7 +144,7 @@
    (init--install-packages)))
 
 ;; Lets start with a smattering of sanity
-(require 'sane-defaults)
+(require (expand-file-name "sane-defaults.el" user-emacs-directory))
 
 ;; Emacs server
 (require 'server)
@@ -159,4 +157,4 @@
   (mapc 'load (directory-files user-lisp-dir nil "^[^#].*el$")))
 
 ;; Setup Key bindings after smartparens config
-(require 'key-bindings)
+(require (expand-file-name "key-bindings.el" user-emacs-directory))
