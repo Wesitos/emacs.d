@@ -1,3 +1,6 @@
+;; IMPORTANTE: Agregar la linea (provide 'jabber-autoloads) al final de 
+;;jabber-autoloads.el(que se encuentra en algun lugar de la carpeta elpa)
+;; al parecer las ultimas versiones no lo incluyen ._.
 (require 'jabber-autoloads)
 (require 'auth-source)
 
