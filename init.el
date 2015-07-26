@@ -54,6 +54,7 @@
      gist ;; gist.github.com
      jabber ;; cliente de chat
      undo-tree
+     whitespace-cleanup-mode
 
      ;;Para programar
      rainbow-delimiters  ;;Parentesis de colores diferentes
@@ -74,10 +75,11 @@
      arduino-mode
      yaml-mode
      csv-mode
+     markdown-mode
 
      ;;python
-     jedi
      python-environment
+     jedi
      ;;ein
 
      ;;Orden
@@ -99,10 +101,7 @@
      helm-spotify ;;Weeee
 
      ;;Clojure
-     ;;ac-nrepl ;;No longer in repositories
-     ;;ac-cider ;;Now is company
      cider
-     ;;cider-tracing ;;No longer in repositories
      clj-refactor
      clojure-cheatsheet
      clojure-snippets
@@ -128,7 +127,6 @@
      ;;dash-at-point
 
      ;;twittering-mode ;;cliente de twitter
-     ;; whitespace-cleanup-mode
      ;; browse-kill-ring
      ;; quickrun
      ;; guide-key
