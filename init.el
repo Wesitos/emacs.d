@@ -48,6 +48,7 @@
   (packages-install
    '(dired-details
      diminish  ;; Permite ocultar nombres de la barra de modos
+     f ;; Funciones para trabajar con archivos
      flx-ido
      ido-ubiquitous
      flycheck
@@ -117,12 +118,16 @@
      w3m ;;Navegador web
      nginx-mode
      js2-mode ;; jsx :p
+     ac-js2
      json-mode
      sass-mode ;; old sass
      scss-mode ;; modern sass
 
      ;; lalala
      xkcd
+
+     ;; Org mode
+     ox-gfm ;; Github flavored markdown
 
      ;;dash-at-point
 
@@ -156,3 +161,6 @@
 
 ;; Setup Key bindings after smartparens config
 (load-file (expand-file-name "key-bindings.el" user-emacs-directory))
+
+;; Abramos la lista de tareas
+(find-file "~/TODO.org")

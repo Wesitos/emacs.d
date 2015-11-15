@@ -6,6 +6,8 @@
    ((((class color) (min-colors 16) (background dark))
      (:foreground "LightSalmon" :strike-through t)))))
 
+(require'org-inline-image)
+
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
@@ -23,20 +25,20 @@
           '(lambda ()
              (define-key org-mode-map [(control tab)] nil)))
 
-          (defun yas/org-very-safe-expand ()
-            (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+(defun yas/org-very-safe-expand ()
+  (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
 
 (add-hook 'org-mode-hook
-                    (lambda ()
-                      (make-variable-buffer-local 'yas/trigger-key)
-                      (setq yas/trigger-key [tab])
-                      (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-                      (define-key yas/keymap [tab] 'yas/next-field)
-                      (setq truncate-partial-width-windows nil)
-                      (setq truncate-lines nil)
-                      ;;Don't break words when wraping
-                      (visual-line-mode t)             
-                      ))
+          (lambda ()
+            (make-variable-buffer-local 'yas/trigger-key)
+            (setq yas/trigger-key [tab])
+            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+            (define-key yas/keymap [tab] 'yas/next-field)
+            (setq truncate-partial-width-windows nil)
+            (setq truncate-lines nil)
+            ;;Don't break words when wraping
+            (visual-line-mode t)
+            ))
 
 (setq org-src-preserve-indentation t)
 
@@ -52,17 +54,20 @@
    (js . t)
    ))
 
+(add-to-list 'org-src-lang-modes '("html" . web))
+(add-to-list 'org-src-lang-modes '("jsx" . react))
+
 ;;Org Contacts
 (require 'org-contacts)
 
 (setq org-contacts-files '("~/Org/contacts.gpg"))
 
 (setq org-capture-templates
-             '(("c" "Contacts" entry (file (first org-contacts-files))
-               "* %(org-contacts-template-name)
+      '(("c" "Contacts" entry (file (first org-contacts-files))
+         "* %(org-contacts-template-name)
     :PROPERTIES:
     :NICKNAME: %^{Nickname}
-    :PHONE: %^{Phone}    
+    :PHONE: %^{Phone}
     :END:")))
 
 (provide 'setup-org-mode)
