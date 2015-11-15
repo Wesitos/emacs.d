@@ -10,14 +10,35 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . (lambda ()
-                                                  (web-mode)
-                                                  (js2-minor-mode))))
 
-(defun my-web-mode-hook () 
+(defun react-mode ()
+  (interactive)
+  (web-mode)
+  (setq web-mode-content-type "jsx")
+  (js2-minor-mode)
+  )
+
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . react-mode))
+
+(setq web-mode-content-types-alist
+      '(
+        ("jsx" . "\\.js[x]?\\'"))
+      )
+
+(defun my-web-mode-hook ()
   "Hooks for Web mode."
   (rainbow-mode t) ;; That's pretty
-)
+  )
+
+
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+(setq web-mode-enable-current-column-highlight t
+      web-mode-enable-current-element-highlight nil
+      web-mode-enable-auto-closing t
+      web-mode-enable-auto-pairing t
+      web-mode-enable-auto-opening t
+      web-mode-enable-part-face nil
+      web-mode-enable-auto-quoting nil)
 (provide 'setup-web-mode)
