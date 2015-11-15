@@ -40,7 +40,7 @@
 ;; muh perspectives
 (defun custom-persp/emacs ()
   (interactive)
-  (custom-persp "emacs"
+  (custom-persp "@emacs"
                 (find-file "~/.emacs.d/init.el")
                 (find-file "~/.emacs.d/sane-defaults.el")
                 (find-file "~/.emacs.d/key-bindings.el")
@@ -83,13 +83,22 @@
                 ))
 (define-key persp-mode-map (kbd "C-x p m") 'custom-persp/matlab)
 
+(defun custom-persp/octave ()
+  (interactive)
+  (custom-persp "@octave"
+                (split-window-right)
+                (run-octave)
+                ))
+(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/octave)
+
+(defun custom-persp/react-init ()
+  (interactive)
+  (custom-persp "@react-init"
+                (find-file "~/Copy/pucp/makerlab/react/react-init/README.md")
+                ))
+(define-key persp-mode-map (kbd "C-x p r") 'custom-persp/react-init)
 
 
 (persp-mode)
 
 (provide 'setup-persp-mode)
-
-
-
-
-
