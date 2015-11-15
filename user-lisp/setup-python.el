@@ -7,22 +7,6 @@
 (require 'python)
 (require 'jedi)
 
-;; From https://github.com/jhamrick/emacs
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args (if system-is-mac
-                                   "--matplotlib=osx --colors=Linux"
-                                 (if system-is-linux
-                                     "--gui=gtk3 --matplotlib=gtk3 --colors=Linux"))
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
- "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
- "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
- "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-
 (add-hook 'python-mode-hook (lambda ()
                               (jedi:setup)
                               ;; Para evitar que  C-tab sea asignado a otra funcion
@@ -31,5 +15,12 @@
 (setq jedi:complete-on-dot t)
 (setq jedi:environment-root
       (expand-file-name "jedi" python-environment-directory))
+;; Para utilizar python3 (por lo menos en ubuntu...)
+;; En caso de haber problemas con jedi:install-server, esto puede
+;; deberse a que intenta instalar epc con pip-2.7 en vez de pip 3.x
+;; instalar epc con pip parece solucionar el problema...
+(setq jedi:environment-virtualenv
+      (append python-environment-virtualenv
+              '("--python" "/usr/bin/python3")))
 
 (provide 'setup-python)
