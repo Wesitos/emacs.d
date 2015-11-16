@@ -8,6 +8,9 @@
 
 (require'org-inline-image)
 
+;; Display images by default
+(setq org-startup-with-inline-images t)
+
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
