@@ -311,7 +311,7 @@ boundaries."
                                              (org-element-property :raw-link link)))
                              (file (concat
                                     org-inline-image-root
-                                    (f-filename resolved-link)))
+                                    (md5 resolved-link)))
                              (current-buf (current-buffer)))
                  (deferred:$
                    (deferred:url-retrieve resolved-link)
@@ -327,7 +327,8 @@ boundaries."
                    (deferred:nextc it
                      (lambda ()
                        (with-current-buffer current-buf
-                         (insert-inline-image file link))))))
+                         (insert-inline-image file link)))))
+                 (message "Done deferred"))
                )
              )))))))
 
