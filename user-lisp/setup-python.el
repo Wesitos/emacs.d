@@ -7,6 +7,29 @@
 (require 'python)
 (require 'jedi)
 
+;; Python 3.5 new keywords
+(font-lock-add-keywords 'python-mode
+                        '(("async" . font-lock-keyword-face)
+                          ("await" . font-lock-keyword-face)))
+
+(declare-function python-shell-calculate-exec-path "python")
+
+(require 'flycheck)
+
+(defun flycheck-virtualenv-set-python-executables ()
+  "Set Python executables for the current buffer."
+  (let ((exec-path (python-shell-calculate-exec-path)))
+    (setq-local flycheck-python-pylint-executable
+                (executable-find "pylint"))
+    (setq-local flycheck-python-flake8-executable
+                (executable-find "flake8"))))
+
+(defun flycheck-virtualenv-setup ()
+  "Setup Flycheck for the current virtualenv."
+  (when (derived-mode-p 'python-mode)
+    (add-hook 'hack-local-variables-hook
+              #'flycheck-virtualenv-set-python-executables 'local)))
+
 (add-hook 'python-mode-hook (lambda ()
                               (jedi:setup)
                               ;; Para evitar que  C-tab sea asignado a otra funcion
@@ -21,6 +44,6 @@
 ;; instalar epc con pip parece solucionar el problema...
 (setq jedi:environment-virtualenv
       (append python-environment-virtualenv
-              '("--python" "/usr/bin/python3")))
+              '("--python" "/usr/bin/python3.5")))
 
 (provide 'setup-python)
