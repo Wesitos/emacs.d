@@ -49,6 +49,7 @@
    '(dired-details
      diminish  ;; Permite ocultar nombres de la barra de modos
      f ;; Funciones para trabajar con archivos
+     exec-path-from-shell ;; sirve para incluir el path de nvm al llamar a eslint
      flx-ido
      ido-ubiquitous
      flycheck
@@ -64,6 +65,7 @@
      auto-complete
      company
      expand-region
+     flycheck
 
      ;;Git
      magit    ;;Trabajar con git
