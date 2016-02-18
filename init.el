@@ -81,6 +81,7 @@
      markdown-mode
 
      ;;python
+     python-mode
      python-environment
      jedi
      ;;ein

@@ -15,11 +15,11 @@
         helm-source-projectile-recentf-list
         helm-source-projectile-files-list)
       ) ;; files in current directory
-    '(helm-c-source-buffers-list ;; list of all open buffers
-      helm-c-source-recentf ;; all recent files
-      helm-c-source-files-in-current-dir
-      helm-c-source-bookmarks ;; bookmarks too
-      helm-c-source-buffer-not-found)) ;; ask to create a buffer otherwise
+    '(helm-source-buffers-list ;; list of all open buffers
+      helm-source-recentf ;; all recent files
+      helm-source-files-in-current-dir
+      helm-source-bookmarks ;; bookmarks too
+      helm-source-buffer-not-found)) ;; ask to create a buffer otherwise
    "*all-seeing-eye*"))
 
 (provide 'setup-helm)

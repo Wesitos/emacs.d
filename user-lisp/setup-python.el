@@ -4,13 +4,8 @@
 ;; jedi mostrara documentacion de los modulos instalados en el
 ;; ambiente virtual .python-enviroments/jedi y en el scope
 ;; global por defecto
-(require 'python)
+(require 'python-mode)
 (require 'jedi)
-
-;; Python 3.5 new keywords
-(font-lock-add-keywords 'python-mode
-                        '(("async" . font-lock-keyword-face)
-                          ("await" . font-lock-keyword-face)))
 
 (declare-function python-shell-calculate-exec-path "python")
 
