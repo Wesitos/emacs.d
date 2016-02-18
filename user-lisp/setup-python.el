@@ -44,6 +44,6 @@
 ;; instalar epc con pip parece solucionar el problema...
 (setq jedi:environment-virtualenv
       (append python-environment-virtualenv
-              '("--python" "/usr/bin/python3.5")))
+              '("--python" "python3.5")))
 
 (provide 'setup-python)
