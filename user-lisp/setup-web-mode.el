@@ -18,11 +18,11 @@
   (setq web-mode-content-type "jsx")
   )
 
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . react-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . react-mode))
 
 (setq web-mode-content-types-alist
       '(
-        ("jsx" . "\\.js[x]?\\'"))
+        ("jsx" . "\\.jsx\\'"))
       )
 
 (setq web-mode-code-indent-offset 2)

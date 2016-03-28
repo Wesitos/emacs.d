@@ -9,6 +9,8 @@
 
 (declare-function python-shell-calculate-exec-path "python")
 
+(defalias 'py-hungry-delete-backwards 'sp-backward-kill-word)
+
 (require 'flycheck)
 
 (defun flycheck-virtualenv-set-python-executables ()

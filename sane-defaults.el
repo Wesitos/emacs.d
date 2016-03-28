@@ -107,6 +107,6 @@
 ;;That's for noobs.
 ;;(cua-mode 1)
 
-(setq auto-save-default nil)
+(setq auto-save-default t)
 
 (provide 'sane-defaults)
